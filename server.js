@@ -10,12 +10,12 @@ connectDB();
 
 const app = express();
 
-//routes
-app.use("/api/auth", authRoutes);
-
 //middlewares
 app.use(express.json());
 app.use(morgan("dev"));
+
+//routes
+app.use("/api/auth", authRoutes);
 
 // define PORT as env or 8080 is a very good practice, it will use this on deploy
 const PORT = process.env.PORT || 8080;
