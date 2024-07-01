@@ -14,7 +14,6 @@ export default function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(process.env.REACT_APP_API);
     try {
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/auth/register`,
@@ -30,8 +29,6 @@ export default function Register() {
       console.log(error);
       toast.error("Server side error :c");
     }
-
-    toast.success("Register successfully");
   }
 
   return (
