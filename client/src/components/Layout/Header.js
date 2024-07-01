@@ -9,8 +9,8 @@ export default function Header() {
         <button
           className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarTogglerDemo01"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo01"
           aria-controls="navbarTogglerDemo01"
           aria-expanded="false"
           aria-label="Toggle navigation"
@@ -33,13 +33,13 @@ export default function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/signup" className="nav-link">
-                Sign-up
+              <NavLink to="/register" className="nav-link">
+                Regoster
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/signin" className="nav-link">
-                Sign-in
+              <NavLink to="/login" className="nav-link">
+                Login
               </NavLink>
             </li>
             <li className="nav-item">
