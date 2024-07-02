@@ -34,7 +34,7 @@ export default function Header() {
             </li>
             <li className="nav-item">
               <NavLink to="/register" className="nav-link">
-                Regoster
+                Register
               </NavLink>
             </li>
             <li className="nav-item">

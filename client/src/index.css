@@ -4,7 +4,7 @@
   box-sizing: 0;
 }
 
-/* font-family: "Playfair Display", serif; */
+/* font-family: "Roboto", serif; */
 /* font-family: "Poppins", sans-serif; */
 
 /* ===========================================
@@ -61,7 +61,7 @@
 }
 
 /* ===========================================
-============ page not found =============== */
+  ============ page not found =============== */
 
 .not-found-img {
   width: 600px;
@@ -103,4 +103,8 @@
   justify-content: center;
   height: 70vh;
   flex-direction: column;
+}
+
+.register h1 {
+  font-family: "Roboto", serif;
 }

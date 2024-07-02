@@ -3,6 +3,7 @@ import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../../styles/Form.css";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -22,12 +23,9 @@ export default function Register() {
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/login");
-      } else {
-        toast.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Server side error :c");
+      toast.error(error.response.data.message);
     }
   }
 
@@ -35,7 +33,7 @@ export default function Register() {
     <Layout title="Register - ShortinG App">
       <div className="register">
         <h1>Register page</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-container">
           <div>
             <div className="mb-3">
               <label htmlFor="exampleInputName" className="form-label">
@@ -64,7 +62,7 @@ export default function Register() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="exampleInputPassword1" className="form-label">
+              <label htmlFor="exampleInputPassword" className="form-label">
                 Password
               </label>
               <input

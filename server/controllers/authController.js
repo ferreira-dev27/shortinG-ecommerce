@@ -26,7 +26,7 @@ export const registerController = async (req, res) => {
     }
     //check user
     const existingUser = await userModel.findOne({ email });
-    console.log(existingUser);
+
     //existing user
     if (existingUser) {
       return res.status(409).send({
@@ -52,7 +52,6 @@ export const registerController = async (req, res) => {
       user,
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).send({
       success: false,
       message: "Error in registration",
@@ -67,7 +66,7 @@ export const loginController = async (req, res) => {
 
     //validation
     if (!email || !password) {
-      return res.status(404).send({
+      return res.status(409).send({
         success: false,
         message: "invalid email or password",
       });
@@ -83,9 +82,8 @@ export const loginController = async (req, res) => {
       });
     }
     const match = await comparePassword(password, user.password);
-    console.log(match);
     if (!match) {
-      return res.status(200).send({
+      return res.status(409).send({
         success: false,
         message: "Incorrect password",
       });
