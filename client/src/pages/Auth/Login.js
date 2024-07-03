@@ -5,12 +5,17 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/Layout";
 import "../../styles/Form.css";
+import { useAuth } from "../../context/auth";
 
 export default function Login() {
+  //variables
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
   const navigate = useNavigate();
 
+  // function submit form
+  //**CHANGE mudar essa função para um arquivo e receber a variável e, variaveis para request e url**//
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -20,6 +25,12 @@ export default function Login() {
       );
       if (res.data.success) {
         toast.success(res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
       }
     } catch (error) {
